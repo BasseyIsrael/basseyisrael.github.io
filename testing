@@ -1,0 +1,46 @@
+/* wrapper2 */
+
+	.wrapper2 {
+		margin-bottom: 5em;
+		padding: 5em;
+	}
+
+		.wrapper2.style1 {
+			padding: 0;
+		}
+
+		.wrapper2.style2b {
+			background-color: #83d3c9;
+			background-image: url("images/light-bl.svg"), url("images/light-br.svg");
+			background-position: bottom left, bottom right;
+			background-repeat: no-repeat, no-repeat;
+			background-size: 25em, 25em;
+			color: #fff;
+		}
+
+			.wrapper2.style2b input[type="button"]:hover,
+			.wrapper2.style2b input[type="submit"]:hover,
+			.wrapper2.style2b input[type="reset"]:hover,
+			.wrapper2.style2b button:hover,
+			.wrapper2.style2b .button:hover {
+				background: rgba(255, 255, 255, 0.15) !important;
+			}
+
+			.wrapper2.style2b input[type="button"].primary,
+			.wrapper2.style2b input[type="submit"].primary,
+			.wrapper2.style2b input[type="reset"].primary,
+			.wrapper2.style2b button.primary,
+			.wrapper2.style2b .button.primary {
+				background: #fff;
+				border-color: #fff;
+				color: #83d3c9 !important;
+			}
+
+				.wrapper2.style2b input[type="button"].primary:hover,
+				.wrapper2.style2b input[type="submit"].primary:hover,
+				.wrapper2.style2b input[type="reset"].primary:hover,
+				.wrapper2.style2b button.primary:hover,
+				.wrapper2.style2b .button.primary:hover {
+					border-color: inherit !important;
+					color: #fff !important;
+				}
