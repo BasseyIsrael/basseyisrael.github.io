@@ -395,7 +395,7 @@ a:focus, a:hover {
 }
 
 .banner {
-  background: #000a2d;
+  background: #00104b00;
   background: url("../images/banner3.png") 80% 50%;
   background-size: cover;
   position: relative;
