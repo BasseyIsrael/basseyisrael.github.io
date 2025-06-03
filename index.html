@@ -36,35 +36,67 @@
 
 
 
-<nav class="navbar navbar-expand-lg navigation header-padding site-header" id="navbar" style="min-height: 100px ;">
-	<div class="container-fluid">
-	  <a class="navbar-brand" href="index.html">
-	  	<!-- <h2>Israel.</h2> -->
-	  	<img src="assets/images/Israel Logo.png" alt="Israel" class="img-fluid">
-	  </a>
+<div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
+      {/* Navigation */}
+      <nav className="fixed top-0 w-full bg-white/80 backdrop-blur-md z-50 border-b border-gray-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center py-4">
+            <div className="flex items-center space-x-2">
+              <div className="w-8 h-8 bg-gradient-to-r from-red-500 to-pink-500 rounded-lg flex items-center justify-center">
+                <span className="text-white font-bold text-sm">I</span>
+              </div>
+              <span className="text-xl font-bold text-gray-900">Israel.</span>
+            </div>
 
-	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarmain" aria-controls="navbarmain" aria-expanded="false" aria-label="Toggle navigation">
-		<span class="fa fa-bars"></span>
-	  </button>
-  
-	  <div class="collapse navbar-collapse" id="navbarmain">
-		<ul class="navbar-nav m-auto">
-		  <li class="nav-item">
-			<a class="nav-link smoth-scroll active" href="#slider">Home <span class="sr-only">(current)</span></a>
-		  </li>
-		   <li class="nav-item"><a class="nav-link smoth-scroll" href="#projects">My Projects</a></li>
-		   <li class="nav-item"><a class="nav-link smoth-scroll" href="#course-materials">Course Materials</a></li>
-		   <li class="nav-item"><a class="nav-link smoth-scroll" href="#skills">Publications</a></li>
-		   <li class="nav-item"><a class="nav-link smoth-scroll" href="#blog">Blog</a></li>
-		   <li class="nav-item"><a class="nav-link smoth-scroll" href="#contact">Contact Me</a></li>
-		</ul>
+            {/* Desktop Navigation */}
+            <div className="hidden md:flex space-x-8">
+              {["HOME", "PROJECTS", "SKILLS", "BLOG", "COURSES", "PUBLICATIONS", "INTERESTS", "CONTACT"].map((item) => (
+                <button
+                  key={item}
+                  className={`text-sm font-medium transition-colors hover:text-red-500 ${
+                    activeSection === item.toLowerCase() ? "text-red-500" : "text-gray-700"
+                  }`}
+                  onClick={() => setActiveSection(item.toLowerCase())}
+                >
+                  {item}
+                </button>
+              ))}
+            </div>
 
-		<form class="form-inline my-2 my-md-0 ml-lg-4">
-		  <a href="https://drive.google.com/file/d/19EFBSJ07W6I8dH1s9gbnFMmuDZgCf5hp/view?usp=share_link" target="_blank"  class="btn btn-main btn-rounded smoth-scroll">View Resume<i class="fa fa-angle-right ml-2"></i></a>
-		</form>
-	  </div>
-	</div>
-</nav>
+            <div className="hidden md:flex items-center space-x-4">
+              <Button variant="outline" size="sm">
+                <Download className="w-4 h-4 mr-2" />
+                Resume
+              </Button>
+            </div>
+
+            {/* Mobile menu button */}
+            <button className="md:hidden" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+              {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+          </div>
+        </div>
+
+        {/* Mobile Navigation */}
+        {isMenuOpen && (
+          <div className="md:hidden bg-white border-t border-gray-200">
+            <div className="px-4 py-2 space-y-2">
+              {["HOME", "PROJECTS", "SKILLS", "BLOG", "COURSES", "PUBLICATIONS", "INTERESTS", "CONTACT"].map((item) => (
+                <button
+                  key={item}
+                  className="block w-full text-left py-2 text-sm font-medium text-gray-700 hover:text-red-500"
+                  onClick={() => {
+                    setActiveSection(item.toLowerCase())
+                    setIsMenuOpen(false)
+                  }}
+                >
+                  {item}
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
+      </nav>
 
 <!-- Header Close --> 
 
